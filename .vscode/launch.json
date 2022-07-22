@@ -1,0 +1,25 @@
+{
+  "configurations": [
+    {
+      "name": "Dev",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "args": ["--dart-define", "ENV=development"]
+    },
+    {
+      "name": "Prod",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "args": ["--dart-define", "ENV=production"]
+    },
+    {
+      "name": "Staging",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "args": ["--dart-define", "ENV=staging"]
+    }
+  ]
+}

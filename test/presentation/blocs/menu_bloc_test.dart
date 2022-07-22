@@ -1,0 +1,47 @@
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
+import 'package:test_saham_rakyat/data/models/menu/menu_model.dart';
+import 'package:test_saham_rakyat/domain/entities/menu.dart';
+import 'package:test_saham_rakyat/domain/usecases/get_menu_use_case.dart';
+import 'package:test_saham_rakyat/presentation/cubit/menu/menu_cubit.dart';
+import 'package:test_saham_rakyat/presentation/cubit/menu/menu_state.dart';
+
+class GetMenuUseCaseMock extends Mock implements GetMenuUseCase {}
+
+void main() {
+  late GetMenuUseCaseMock usecase;
+  late MenuCubit cubit;
+
+  setUp(() {
+    usecase = GetMenuUseCaseMock();
+    cubit = MenuCubit(usecase);
+  });
+
+  List<Menu> expectedMenus = List<Map<String, dynamic>>.from([
+    {
+      'strMeal': 'Beef and Mustard Pie',
+      'strMealThumb':
+          'https:\/\/www.themealdb.com\/images\/media\/meals\/sytuqu1511553755.jpg',
+      'idMeal': '52874'
+    },
+    {
+      'strMeal': 'Beef and Oyster pie',
+      'strMealThumb':
+          'https:\/\/www.themealdb.com\/images\/media\/meals\/wrssvt1511556563.jpg',
+      'idMeal': '52878'
+    },
+  ]).map((json) => MenuModel.fromJson(json).toEntity()).toList();
+
+  Future<List<Menu>> menus = Future(() => expectedMenus);
+  test("Initial state should be empty", () {
+    expect(cubit.state.menus, []);
+  });
+
+  test("State Should Be Returned Value Of Usecase", () async {
+    when(() => usecase.execute("Beef")).thenAnswer((invocation) => menus);
+
+    await cubit.fetchMenu("Beef");
+
+    expect(cubit.state.menus, equals(expectedMenus));
+  });
+}
