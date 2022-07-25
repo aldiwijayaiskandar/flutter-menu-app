@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test_saham_rakyat/domain/entities/menu.dart';
 import 'package:test_saham_rakyat/presentation/cubit/menu/menu_cubit.dart';
 import 'package:test_saham_rakyat/presentation/cubit/menu/menu_state.dart';
+import 'package:test_saham_rakyat/widgets/menu_card/menu_card.dart';
 
 class HomeMenuList extends StatelessWidget {
   const HomeMenuList({Key? key}) : super(key: key);
@@ -10,6 +12,8 @@ class HomeMenuList extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<MenuCubit, MenuCubitState>(
       builder: (_, state) {
+        List<Menu> menus = state.menus;
+
         return GridView.builder(
           primary: false,
           physics:
@@ -24,29 +28,9 @@ class HomeMenuList extends StatelessWidget {
             mainAxisSpacing: 10,
             crossAxisCount: 2,
           ),
-          itemBuilder: (_, index) => Card(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ClipRRect(
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(6),
-                    topRight: Radius.circular(6),
-                  ),
-                  child: Image.network(
-                    state.menus[index].thumbnail,
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(8),
-                  child: Column(
-                    children: [
-                      Text(state.menus[index].name),
-                    ],
-                  ),
-                )
-              ],
-            ),
+          itemBuilder: (_, index) => Menucard(
+            thumbnail: menus[index].thumbnail,
+            name: menus[index].name,
           ),
           itemCount: state.menus.length,
         );

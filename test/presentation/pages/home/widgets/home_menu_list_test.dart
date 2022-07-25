@@ -9,6 +9,7 @@ import 'package:test_saham_rakyat/domain/entities/menu.dart';
 import 'package:test_saham_rakyat/presentation/cubit/menu/menu_cubit.dart';
 import 'package:test_saham_rakyat/presentation/cubit/menu/menu_state.dart';
 import 'package:test_saham_rakyat/presentation/home/widgets/home_menu_list.dart';
+import 'package:test_saham_rakyat/widgets/menu_card/menu_card.dart';
 
 class MockMenuCubit extends MockCubit<MenuCubitState> implements MenuCubit {}
 
@@ -55,9 +56,6 @@ void main() {
       );
     });
 
-    expect(find.byType(Card), findsNWidgets(menus.length));
-    for (var menu in menus) {
-      expect(find.text(menu.name), findsOneWidget);
-    }
+    expect(find.byType(Menucard), findsNWidgets(menus.length));
   });
 }
