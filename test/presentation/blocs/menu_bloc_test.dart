@@ -37,11 +37,34 @@ void main() {
     expect(cubit.state.menus, []);
   });
 
-  test("State Should Be Returned Value Of Usecase", () async {
+  test("State should be returned value of usecase", () async {
     when(() => usecase.execute("Beef")).thenAnswer((invocation) => menus);
 
     await cubit.fetchMenu("Beef");
 
+    expect(cubit.state.menus, equals(expectedMenus));
+  });
+
+  test("State should be MenuCategoryError", () async {
+    when(() => usecase.execute("Beef")).thenThrow("");
+
+    await cubit.fetchMenu("Beef");
+
+    expect(cubit.state is MenuError, true);
+  });
+
+  test("State values not being changes when error", () async {
+    when(() => usecase.execute("Beef")).thenAnswer((invocation) => menus);
+
+    await cubit.fetchMenu("Beef");
+
+    expect(cubit.state.menus, equals(expectedMenus));
+
+    when(() => usecase.execute("Beef")).thenThrow("");
+
+    await cubit.fetchMenu("Beef");
+
+    expect(cubit.state is MenuError, true);
     expect(cubit.state.menus, equals(expectedMenus));
   });
 }
