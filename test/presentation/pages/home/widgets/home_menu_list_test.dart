@@ -8,8 +8,8 @@ import 'package:test_saham_rakyat/data/models/menu/menu_model.dart';
 import 'package:test_saham_rakyat/domain/entities/menu.dart';
 import 'package:test_saham_rakyat/presentation/cubit/menu/menu_cubit.dart';
 import 'package:test_saham_rakyat/presentation/cubit/menu/menu_state.dart';
-import 'package:test_saham_rakyat/presentation/home/widgets/home_menu_list.dart';
-import 'package:test_saham_rakyat/widgets/menu_card/menu_card.dart';
+import 'package:test_saham_rakyat/presentation/views/home/widgets/home_menu_list.dart';
+import 'package:test_saham_rakyat/presentation/widgets/menu_card/menu_card.dart';
 
 class MockMenuCubit extends MockCubit<MenuCubitState> implements MenuCubit {}
 

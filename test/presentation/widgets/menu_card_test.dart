@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:network_image_mock/network_image_mock.dart';
 import 'package:test_saham_rakyat/data/models/menu/menu_model.dart';
 import 'package:test_saham_rakyat/domain/entities/menu.dart';
-import 'package:test_saham_rakyat/widgets/menu_card/menu_card.dart';
+import 'package:test_saham_rakyat/presentation/widgets/menu_card/menu_card.dart';
 
 void main() {
   Menu menu = MenuModel.fromJson(
