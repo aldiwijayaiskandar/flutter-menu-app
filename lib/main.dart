@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_saham_rakyat/config/envs/env.dart';
 import 'package:test_saham_rakyat/config/routes/routes.dart';
+import 'package:test_saham_rakyat/config/theme/app_theme.dart';
 
 void main() async {
   await Envrionment.load();
@@ -16,9 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: AppTheme.light,
       initialRoute: "/",
       onGenerateRoute: AppRoutes.onGenerateRoutes,
     );

@@ -14,6 +14,7 @@ void main() {
   testWidgets("Display Menu Greeting Title", (WidgetTester tester) async {
     await _pumpTestWidget(tester, const HomeTitle());
 
-    expect(find.text("Finds Good Food Around You"), findsOneWidget);
+    expect(find.text("Hello Aldi"), findsOneWidget);
+    expect(find.text("What Are You Cooking Today?"), findsOneWidget);
   });
 }

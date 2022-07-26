@@ -23,7 +23,7 @@ class HomeMenuList extends StatelessWidget {
             top: 10,
           ),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            childAspectRatio: 3 / 4,
+            childAspectRatio: 1,
             crossAxisSpacing: 10,
             mainAxisSpacing: 10,
             crossAxisCount: 2,

@@ -13,26 +13,32 @@ class Menucard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      color: Colors.grey,
+      child: Stack(
         children: [
           ClipRRect(
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(6),
-              topRight: Radius.circular(6),
-            ),
+            borderRadius: BorderRadius.circular(8),
             child: Image.network(
               thumbnail,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8),
-            child: Column(
-              children: [
-                Text(name),
-              ],
+          Positioned(
+            bottom: 0,
+            left: 0,
+            child: Container(
+              width: (MediaQuery.of(context).size.width / 2) - 28,
+              padding: const EdgeInsets.all(8),
+              child: Text(
+                name,
+                style: Theme.of(context).textTheme.bodyLarge!.merge(
+                      const TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                maxLines: 2,
+              ),
             ),
-          )
+          ),
         ],
       ),
     );

@@ -9,12 +9,28 @@ class HomeTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
-          "Finds Good Food Around You",
-          style: Theme.of(context).textTheme.headlineMedium,
-        ),
-        const SizedBox(
-          height: 20,
+        Container(
+          margin: EdgeInsets.only(
+            top: MediaQuery.of(context).padding.top,
+            bottom: 30,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Hello Aldi",
+                style: Theme.of(context).textTheme.displayLarge,
+              ),
+              Text(
+                "What Are You Cooking Today?",
+                style: Theme.of(context).textTheme.bodyMedium!.merge(
+                      const TextStyle(
+                        color: Colors.grey,
+                      ),
+                    ),
+              ),
+            ],
+          ),
         ),
       ],
     );

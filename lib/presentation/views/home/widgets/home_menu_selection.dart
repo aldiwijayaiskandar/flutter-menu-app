@@ -18,24 +18,35 @@ class HomeMenuSelection extends StatelessWidget {
     return BlocBuilder<MenuCategoryCubit, MenuCategoryCubitState>(
       builder: (_, state) {
         return Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(6),
             border: Border.all(
-              color: Colors.black,
-              width: 0.5,
+              color: Theme.of(context).primaryColor,
+              width: 1,
             ),
           ),
           width: double.infinity,
           child: DropdownButtonHideUnderline(
             key: const Key("Dropdown"),
             child: DropdownButton(
+              icon: Icon(
+                Icons.arrow_drop_down,
+                color: Theme.of(context).primaryColor,
+              ),
               value: selectedMenuCategories,
               items: state.categories
                   .map(
                     (item) => DropdownMenuItem(
                       value: item.category,
-                      child: Text(item.category),
+                      child: Text(
+                        item.category,
+                        style: Theme.of(context).textTheme.bodyLarge!.merge(
+                              TextStyle(
+                                color: Theme.of(context).primaryColor,
+                              ),
+                            ),
+                      ),
                     ),
                   )
                   .toList(),

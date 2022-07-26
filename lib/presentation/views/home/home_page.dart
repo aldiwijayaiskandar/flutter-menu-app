@@ -51,7 +51,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: RefreshIndicator(
         onRefresh: () async {
           await onRefresh();
