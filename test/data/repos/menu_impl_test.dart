@@ -8,7 +8,7 @@ import 'package:test_saham_rakyat/data/services/services.dart';
 import 'package:test_saham_rakyat/domain/entities/menu.dart';
 import 'package:test_saham_rakyat/domain/entities/menu_detail.dart';
 
-import '../../utils/dio_api_mock.dart';
+import '../../helper/dio_api_mock.dart';
 
 void main() {
   final DioApi dioApi = MockDioApi();
