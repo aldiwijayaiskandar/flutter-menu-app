@@ -28,6 +28,7 @@ class HomeMenuSelection extends StatelessWidget {
           ),
           width: double.infinity,
           child: DropdownButtonHideUnderline(
+            key: const Key("Dropdown"),
             child: DropdownButton(
               value: selectedMenuCategories,
               items: state.categories
