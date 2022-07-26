@@ -33,7 +33,7 @@ void main() {
 
   Future<List<Menu>> menus = Future(() => expectedMenus);
 
-  test("Should Get x Menu When Execute", () async {
+  test("Should menus when execute", () async {
     when(() => repo.getMenus("Beef")).thenAnswer((_) => menus);
 
     final result = await usecase.execute("Beef");
