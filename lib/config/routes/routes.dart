@@ -8,7 +8,7 @@ import 'package:test_saham_rakyat/domain/usecases/get_menu_use_case.dart';
 
 import 'package:test_saham_rakyat/presentation/cubit/menu/menu_cubit.dart';
 import 'package:test_saham_rakyat/presentation/cubit/menu_category/menu_category_cubit.dart';
-import 'package:test_saham_rakyat/presentation/home/home_page.dart';
+import 'package:test_saham_rakyat/presentation/views/home/home_page.dart';
 
 class AppRoutes {
   static Route? onGenerateRoutes(RouteSettings settings) {
