@@ -29,8 +29,7 @@ class HomeMenuList extends StatelessWidget {
             crossAxisCount: 2,
           ),
           itemBuilder: (_, index) => Menucard(
-            thumbnail: menus[index].thumbnail,
-            name: menus[index].name,
+            menu: menus[index],
           ),
           itemCount: state.menus.length,
         );
