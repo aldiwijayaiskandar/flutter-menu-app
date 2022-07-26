@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_saham_rakyat/presentation/cubit/menu/menu_cubit.dart';
 import 'package:test_saham_rakyat/presentation/cubit/menu_category/menu_category_cubit.dart';
-import 'package:test_saham_rakyat/presentation/views/home/widgets/home_menu_list.dart';
-import 'package:test_saham_rakyat/presentation/views/home/widgets/home_menu_selection.dart';
-import 'package:test_saham_rakyat/presentation/views/home/widgets/home_title.dart';
+import 'package:test_saham_rakyat/presentation/pages/home/widgets/home_menu_list.dart';
+import 'package:test_saham_rakyat/presentation/pages/home/widgets/home_menu_selection.dart';
+import 'package:test_saham_rakyat/presentation/pages/home/widgets/home_title.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
