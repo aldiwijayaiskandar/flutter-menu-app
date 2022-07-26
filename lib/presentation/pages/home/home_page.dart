@@ -24,9 +24,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future onRefresh() async {
-    _menuCategoryCubit = BlocProvider.of<MenuCategoryCubit>(context);
-    _menuCubit = BlocProvider.of<MenuCubit>(context);
-
     await _menuCategoryCubit.fetchMenuCategories();
 
     String defaultMenuCategory =
@@ -44,6 +41,9 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
+    _menuCategoryCubit = BlocProvider.of<MenuCategoryCubit>(context);
+    _menuCubit = BlocProvider.of<MenuCubit>(context);
+
     onRefresh();
     super.initState();
   }

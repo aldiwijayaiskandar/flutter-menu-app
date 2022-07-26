@@ -38,12 +38,17 @@ class MenuDetailModel {
   factory MenuDetailModel.fromJson(Map<String, dynamic> json) {
     List<Ingridients> ingridients = [];
     for (int i = 1; i <= 20; i++) {
-      ingridients.add(
-        Ingridients(
-          ingridients: json['strIngredient$i'],
-          measurement: json['strMeasure$i'],
-        ),
-      );
+      if (json['strIngredient$i'] != null &&
+          json['strIngredient$i'].toString().isNotEmpty &&
+          json['strMeasure$i'] != null &&
+          json['strMeasure$i'].toString().isNotEmpty) {
+        ingridients.add(
+          Ingridients(
+            ingridients: json['strIngredient$i'],
+            measurement: json['strMeasure$i'],
+          ),
+        );
+      }
     }
 
     return MenuDetailModel(
