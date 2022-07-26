@@ -45,7 +45,7 @@ void main() {
     expect(cubit.state.menus, equals(expectedMenus));
   });
 
-  test("State should be MenuCategoryError", () async {
+  test("State should be MenuCategoryError if use case throw", () async {
     when(() => usecase.execute("Beef")).thenThrow("");
 
     await cubit.fetchMenu("Beef");
@@ -53,7 +53,7 @@ void main() {
     expect(cubit.state is MenuError, true);
   });
 
-  test("State values not being changes when error", () async {
+  test("State values not being changes when error if", () async {
     when(() => usecase.execute("Beef")).thenAnswer((invocation) => menus);
 
     await cubit.fetchMenu("Beef");
