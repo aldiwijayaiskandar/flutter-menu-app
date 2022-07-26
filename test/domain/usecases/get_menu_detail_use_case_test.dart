@@ -77,9 +77,9 @@ void main() {
   });
 
   test("Should get menu detail when execute", () async {
-    when(() => repo.getMenu(1)).thenAnswer((_) => detail);
+    when(() => repo.getMenu("1")).thenAnswer((_) => detail);
 
-    final result = await usecase.execute(1);
+    final result = await usecase.execute("1");
 
     expect(result, expectedDetail);
   });

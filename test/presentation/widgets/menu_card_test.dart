@@ -27,8 +27,7 @@ void main() {
       await tester.pumpWidget(
         _makeTestableWidget(
           Menucard(
-            thumbnail: menu.thumbnail,
-            name: menu.name,
+            menu: menu,
           ),
         ),
       );

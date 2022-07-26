@@ -6,5 +6,5 @@ class GetMenuDetailUseCase {
 
   GetMenuDetailUseCase(this._menuRepo);
 
-  Future<MenuDetail> execute(int id) => _menuRepo.getMenu(id);
+  Future<MenuDetail> execute(String id) => _menuRepo.getMenu(id);
 }

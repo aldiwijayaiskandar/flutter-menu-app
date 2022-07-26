@@ -124,7 +124,7 @@ void main() {
   test("Getting menu detail", () async {
     when(() => dioApi.getApi(url: "/v1/1/lookup.php?i=1"))
         .thenAnswer((_) => menuDetails);
-    final result = await repo.getMenu(1);
+    final result = await repo.getMenu("1");
 
     expect(result.id, expectedDetail.id);
     expect(result.area, expectedDetail.area);

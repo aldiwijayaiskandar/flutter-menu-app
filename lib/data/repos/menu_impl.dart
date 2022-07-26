@@ -24,7 +24,7 @@ class MenuRepoImpl extends MenuRepo {
   }
 
   @override
-  Future<MenuDetail> getMenu(int id) async {
+  Future<MenuDetail> getMenu(String id) async {
     final result = MenuDetailResponse.fromJson(
       (await dioApi.getApi(url: "/v1/1/lookup.php?i=$id")).data,
     );
