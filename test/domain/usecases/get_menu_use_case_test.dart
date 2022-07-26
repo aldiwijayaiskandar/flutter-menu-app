@@ -8,12 +8,12 @@ import 'package:test_saham_rakyat/domain/usecases/get_menu_use_case.dart';
 class MockMenuRepo extends Mock implements MenuRepo {}
 
 void main() {
-  late MockMenuRepo mockMenuRepo;
+  late MockMenuRepo repo;
   late GetMenuUseCase usecase;
 
   setUp(() {
-    mockMenuRepo = MockMenuRepo();
-    usecase = GetMenuUseCase(mockMenuRepo);
+    repo = MockMenuRepo();
+    usecase = GetMenuUseCase(repo);
   });
 
   List<Menu> expectedMenus = List<Map<String, dynamic>>.from([
@@ -34,7 +34,7 @@ void main() {
   Future<List<Menu>> menus = Future(() => expectedMenus);
 
   test("Should Get x Menu When Execute", () async {
-    when(() => mockMenuRepo.getMenus("Beef")).thenAnswer((_) => menus);
+    when(() => repo.getMenus("Beef")).thenAnswer((_) => menus);
 
     final result = await usecase.execute("Beef");
 

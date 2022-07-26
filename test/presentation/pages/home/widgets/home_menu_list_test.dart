@@ -14,10 +14,10 @@ import 'package:test_saham_rakyat/widgets/menu_card/menu_card.dart';
 class MockMenuCubit extends MockCubit<MenuCubitState> implements MenuCubit {}
 
 void main() {
-  late MockMenuCubit mockMenuCubit;
+  late MockMenuCubit cubit;
 
   setUp(() {
-    mockMenuCubit = MockMenuCubit();
+    cubit = MockMenuCubit();
   });
 
   List<Menu> menus = List<Map<String, dynamic>>.from([
@@ -37,7 +37,7 @@ void main() {
 
   Widget _makeTestableWidget(Widget body) {
     return BlocProvider<MenuCubit>.value(
-      value: mockMenuCubit,
+      value: cubit,
       child: MaterialApp(
         home: body,
       ),
@@ -46,7 +46,7 @@ void main() {
 
   testWidgets("Display ${menus.length} num of menu",
       (WidgetTester tester) async {
-    when(() => mockMenuCubit.state).thenReturn(MenuLoaded(menus: menus));
+    when(() => cubit.state).thenReturn(MenuLoaded(menus: menus));
 
     await mockNetworkImagesFor(() async {
       await tester.pumpWidget(

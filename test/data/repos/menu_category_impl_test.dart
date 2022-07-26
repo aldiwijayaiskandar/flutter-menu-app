@@ -10,7 +10,6 @@ import '../../utils/dio_api_mock.dart';
 
 void main() {
   final DioApi dioApi = MockDioApi();
-
   late MenuCategoryRepoImpl repo;
 
   setUp(() {
