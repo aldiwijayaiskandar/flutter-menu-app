@@ -7,5 +7,7 @@ class Envrionment {
     await dotenv.load(fileName: 'lib/config/envs/$environment.env');
   }
 
-  static String get baseUrl => dotenv.get("BASE_URL");
+  static String get baseUrl => dotenv.get("BASE_URL") == ""
+      ? "themealdb.com/api/json"
+      : dotenv.get("BASE_URL");
 }
